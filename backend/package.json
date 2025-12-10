@@ -1,7 +1,7 @@
 {
-  "name": "backend",
+  "name": "bookmydoc-backend",
   "version": "1.0.0",
-  "description": "Prescripto backend server",
+  "description": "BookMyDoc backend server",
   "type": "module",
   "main": "server.js",
   "scripts": {
@@ -28,7 +28,7 @@
     "validator": "^13.12.0"
   },
   "engines": {
-  "node": "18.x"
+    "node": "24.x"
   },
   "author": "M Manohar Reddy",
   "license": "ISC"

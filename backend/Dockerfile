@@ -1,20 +1,19 @@
-# Use a slim Node image
-FROM node:18-alpine
+# backend/Dockerfile
+FROM node:24-alpine
 
 WORKDIR /app
 
-# Install dependencies (copy package.json first for layer caching)
+# copy package files first — cache deps
 COPY package*.json ./
+
+# install dependencies (dev deps included only for dev; adjust if you want production-only)
 RUN npm ci --production=false
 
-# Copy app code
+# copy rest of the app
 COPY . .
 
-# Build step if you have any build (optional)
-# RUN npm run build
-
-# Ensure the app listens on process.env.PORT (backend should do this)
+# ensure server listens on process.env.PORT
 ENV NODE_ENV=production
 
-# Start command (should match package.json "start")
+# start
 CMD ["npm", "start"]
