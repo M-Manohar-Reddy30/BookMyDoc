@@ -104,7 +104,7 @@ While developing locally you can either:
 4. Add Environment Variables in Render (match the names used in your `.env`).
 5. Create service and deploy. Use Render logs for debugging any runtime errors.
 
-**Tip:** Make sure your app reads `process.env.PORT || 8000` so Render’s dynamic port is used.
+Tip: Make sure your app reads `process.env.PORT || 8000` so Render’s dynamic port is used.
 
 ---
 
@@ -145,39 +145,8 @@ This forwards client requests to `/api/*` through Vercel to your Render backend 
 /* /index.html 200
 ```
 
----
-
-## Post-deploy smoke tests
-
-1. Hit the frontend URL and use **Create account**. Confirm `localStorage` has a token and you get redirected.
-2. In DevTools Network, check the POST to `/api/user/register` goes to your Render backend and returns a token.
-3. Login, then book an appointment — check the booking POST includes `Authorization` header or `token` header.
-4. If any 5xx appears, open the Render service logs and copy the error stack trace here.
-
----
-
-## Troubleshooting common issues
-
-* **500 on register:** check backend logs — usually DB connection, missing env var, or unhandled exception.
-* **CORS errors:** either use Vercel rewrites or enable CORS middleware on the backend to allow your frontend domain.
-* **Missing token on booking:** make sure the frontend sends `Authorization: Bearer <token>` or the `token` header if your backend reads it that way.
-
----
-
 ## Commands summary
 
 * Backend dev: `cd backend && npm install && npm run dev`
 * Frontend dev: `cd frontend && npm install && npm run dev`
 * Build frontend: `cd frontend && npm run build`
-
----
-
-## Want me to do it for you?
-
-Tell me which of these you want right now and I’ll do it step-by-step with exact commands and copyable values:
-
-* **(A)** Create `vercel.json` and a `start` script for the backend and push changes
-* **(B)** Walk you through deploying the backend to Render (I’ll list the env vars and exact clicks)
-* **(C)** Walk you through deploying frontend (and admin) to Vercel
-
-If you want me to take over one specific action now, say **A**, **B**, or **C** and I’ll begin.
