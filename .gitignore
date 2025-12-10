@@ -1,0 +1,27 @@
+# Node
+node_modules/
+dist/
+build/
+.env
+.env.local
+
+# Python / FastAPI
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+venv/
+env/
+*.sqlite3
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Other
+.idea/
+.vscode/
