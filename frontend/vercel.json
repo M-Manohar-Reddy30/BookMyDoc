@@ -1,9 +1,6 @@
 {
   "rewrites": [
-    { "source": "/api/:path*", "destination": "https://bookmydoc-backend-ro8y.onrender.com/:path*" }
-  ],
-  "routes": [
-    { "handle": "filesystem" },
-    { "src": "/.*", "dest": "/index.html" }
+    { "source": "/api/:path*", "destination": "https://bookmydoc-backend-ro8y.onrender.com/:path*" },
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
